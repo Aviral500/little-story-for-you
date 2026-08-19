@@ -1,0 +1,1607 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #120e18;
+}
+
+
+/* ==================================================
+   COMMON SCENE
+================================================== */
+
+.scene {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.035);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.5s cubic-bezier(.22, .61, .36, 1),
+        visibility 1.2s;
+
+    overflow: hidden;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* ==================================================
+   SCENE 1
+================================================== */
+
+.scene-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image:
+        url("assets/seoul-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.opening-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(15, 8, 22, .15),
+            rgba(15, 8, 22, .78)
+        );
+
+    z-index: 1;
+}
+
+
+/* Soft cinematic lights */
+
+.opening-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: .25;
+
+    z-index: 2;
+}
+
+.glow-one {
+    background: #ffb7ce;
+
+    top: 10%;
+    left: 12%;
+}
+
+.glow-two {
+    background: #c8a7ff;
+
+    bottom: 5%;
+    right: 10%;
+}
+
+
+/* Opening content */
+
+.opening-content {
+    position: relative;
+
+    z-index: 4;
+
+    width: min(900px, 90%);
+
+    text-align: center;
+
+    color: white;
+}
+
+
+.episode-label {
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    opacity: .8;
+
+    margin-bottom: 20px;
+}
+
+
+.title-line {
+    width: 70px;
+    height: 1px;
+
+    background: rgba(255,255,255,.6);
+
+    margin: 0 auto 30px;
+}
+
+
+.opening-content h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(42px, 6vw, 76px);
+
+    font-weight: 500;
+
+    line-height: 1.02;
+
+    letter-spacing: -.8px;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.35);
+
+    animation: openingText 1.8s ease forwards;
+}
+
+
+.opening-content h1 span {
+    font-style: italic;
+
+    color: #ffd7e5;
+}
+
+
+.opening-subtitle {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 32px;
+
+    color: #ffe1eb;
+
+    margin-top: 28px;
+}
+
+
+/* Begin button */
+
+.begin-btn {
+    position: relative;
+
+    margin-top: 45px;
+
+    min-width: 190px;
+
+    padding: 15px 26px;
+
+    border: 1px solid rgba(255,255,255,.55);
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.09);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    transition: .4s ease;
+}
+
+
+.begin-btn strong {
+    font-size: 17px;
+
+    font-weight: 400;
+
+    color: #ffd5e4;
+}
+
+
+.begin-btn:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,.18);
+
+    border-color: rgba(255,255,255,.9);
+
+    box-shadow:
+        0 15px 40px rgba(255,170,200,.2);
+}
+
+
+/* Opening footer */
+
+.opening-footer {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 35px;
+    right: 35px;
+    bottom: 28px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ==================================================
+   SCENE 2
+================================================== */
+
+.scene-2 {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fbf1ed,
+            #f8e9eb 45%,
+            #fdf7f2
+        );
+
+    color: #4b3040;
+}
+
+
+/* Background light */
+
+.scene2-background {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 30%,
+            rgba(255,181,201,.25),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(205,181,224,.20),
+            transparent 32%
+        );
+
+    z-index: 0;
+}
+
+
+/* ==================================================
+   BLOSSOM SHADOWS
+================================================== */
+
+.blossom-shadow {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    opacity: .10;
+
+    pointer-events: none;
+}
+
+.shadow-left {
+    left: -180px;
+    top: -180px;
+
+    background: #d66b8b;
+}
+
+.shadow-right {
+    right: -150px;
+    bottom: -160px;
+
+    background: #bd84a4;
+}
+
+
+/* ==================================================
+   MAIN CONTENT
+================================================== */
+
+.scene2-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1200px, 90%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: clamp(70px, 9vw, 130px);
+}
+
+
+/* ==================================================
+   PHOTO AREA
+================================================== */
+
+.photo-area {
+    position: relative;
+
+    width: 410px;
+
+    min-width: 410px;
+
+    height: 570px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* Paper layers */
+
+.paper-layer {
+    position: absolute;
+
+    width: 390px;
+    height: 525px;
+
+    background: #fffaf7;
+
+    box-shadow:
+        0 15px 45px rgba(70,40,55,.08);
+}
+
+
+.layer-back {
+    transform:
+        rotate(5deg)
+        translate(14px, 8px);
+
+    opacity: .65;
+}
+
+
+.layer-middle {
+    transform:
+        rotate(-5deg)
+        translate(-10px, 5px);
+
+    opacity: .8;
+}
+
+
+/* Main Polaroid */
+
+.photo-wrapper {
+    position: relative;
+
+    width: 390px;
+
+    padding: 15px 15px 48px;
+
+    background: #fffdfb;
+
+    box-shadow:
+        0 25px 70px rgba(76,45,58,.18);
+
+    transform:
+        rotate(-3deg);
+
+    transition:
+        transform .5s cubic-bezier(.22,.61,.36,1),
+        box-shadow .5s ease;
+
+    z-index: 3;
+}
+
+
+.photo-wrapper:hover {
+    transform:
+        rotate(0deg)
+        translateY(-8px)
+        scale(1.015);
+
+    box-shadow:
+        0 35px 85px rgba(76,45,58,.23);
+}
+
+
+.photo-inner {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+}
+
+
+.main-photo {
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .8s ease;
+}
+
+
+.photo-wrapper:hover .main-photo {
+    transform: scale(1.025);
+}
+
+
+/* Photo caption */
+
+.photo-caption {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 13px;
+
+    text-align: center;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 20px;
+
+    color: #9c6177;
+}
+
+
+/* Tape */
+
+.tape {
+    position: absolute;
+
+    width: 105px;
+    height: 32px;
+
+    top: -18px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    background:
+        rgba(230,180,190,.75);
+
+    opacity: .9;
+
+    z-index: 5;
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,.04);
+}
+
+
+/* ==================================================
+   FLOWERS
+================================================== */
+
+.flower {
+    position: absolute;
+
+    z-index: 6;
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff0a9 0 9%,
+            transparent 10%
+        ),
+
+        radial-gradient(
+            circle at 50% 10%,
+            #f38aa8 0 24%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 50%,
+            #f38aa8 0 24%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            #f38aa8 0 24%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 10% 50%,
+            #f38aa8 0 24%,
+            transparent 25%
+        );
+
+    filter:
+        drop-shadow(0 5px 8px rgba(0,0,0,.12));
+
+    animation:
+        gentleFloat 4s ease-in-out infinite;
+}
+
+
+.flower-head {
+    display: none;
+}
+
+
+.flower-top {
+    right: -20px;
+    top: 45px;
+
+    transform: rotate(15deg);
+}
+
+
+.flower-bottom {
+    left: -25px;
+    bottom: 70px;
+
+    transform: rotate(-15deg);
+
+    animation-delay: 1s;
+}
+
+
+/* Small petals */
+
+.tiny-petal {
+    position: absolute;
+
+    font-size: 15px;
+
+    color: #ec91a9;
+
+    opacity: .65;
+
+    z-index: 7;
+
+    animation:
+        tinyFloat 5s ease-in-out infinite;
+}
+
+
+.petal-a {
+    left: 15px;
+    top: 100px;
+}
+
+
+.petal-b {
+    right: 10px;
+    bottom: 125px;
+
+    animation-delay: 2s;
+}
+
+
+/* ==================================================
+   CHARACTER TEXT
+================================================== */
+
+.character-text {
+    max-width: 550px;
+
+    padding-top: 5px;
+}
+
+
+/* Episode label */
+
+.episode-mini {
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #a66b80;
+
+    margin-bottom: 16px;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+}
+
+
+.episode-mini span {
+    margin: 0 8px;
+
+    color: #d394a8;
+}
+
+
+/* Decoration */
+
+.heading-decoration {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 150px;
+
+    color: #c26e88;
+
+    font-size: 15px;
+
+    margin-bottom: 20px;
+
+    opacity: 0;
+}
+
+
+.heading-decoration span {
+    height: 1px;
+
+    flex: 1;
+
+    background: #d9a5b4;
+}
+
+
+/* Heading */
+
+.character-text h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(44px, 4.3vw, 66px);
+
+    font-weight: 500;
+
+    line-height: .98;
+
+    letter-spacing: -1px;
+
+    color: #4d3040;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+}
+
+
+.character-text h2 em {
+    font-style: italic;
+
+    color: #b15d78;
+}
+
+
+/* Script */
+
+.script-text {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    margin-top: 30px;
+
+    color: #9b4f70;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+}
+
+
+.script-text span {
+    color: #ba6b88;
+}
+
+
+/* Divider */
+
+.tiny-line {
+    width: 70px;
+
+    height: 1px;
+
+    background: #c98ca1;
+
+    margin: 27px 0;
+
+    opacity: 0;
+}
+
+
+/* Bottom text */
+
+.bottom-note {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+
+    line-height: 1.45;
+
+    color: #80606d;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+}
+
+
+.little-note {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 23px;
+
+    color: #b36b83;
+
+    margin-top: 13px;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+}
+
+
+/* ==================================================
+   NEXT BUTTON
+================================================== */
+
+.next-btn {
+    margin-top: 28px;
+
+    border: none;
+
+    background: transparent;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: #805064;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    padding: 7px 0;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition: .35s ease;
+}
+
+
+.next-btn strong {
+    font-size: 20px;
+
+    font-weight: 300;
+
+    transition: .35s ease;
+}
+
+
+.next-btn:hover {
+    color: #b55473;
+}
+
+
+.next-btn:hover strong {
+    transform: translateX(7px);
+}
+
+
+/* ==================================================
+   SCENE NUMBER
+================================================== */
+
+.scene-number {
+    position: absolute;
+
+    right: 35px;
+    bottom: 30px;
+
+    z-index: 8;
+
+    color: rgba(90,55,70,.5);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ==================================================
+   PETALS
+================================================== */
+
+#petals-container {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    overflow: hidden;
+}
+
+
+.petal {
+    position: absolute;
+
+    top: -50px;
+
+    width: 10px;
+    height: 7px;
+
+    border-radius: 100% 0 100% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7a9bb,
+            #e67d9a
+        );
+
+    opacity: .65;
+
+    animation:
+        fall linear forwards;
+}
+
+
+@keyframes fall {
+
+    0% {
+        transform:
+            translate3d(0,-50px,0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .7;
+    }
+
+    50% {
+        margin-left: 80px;
+    }
+
+    100% {
+        transform:
+            translate3d(-40px,110vh,0)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ==================================================
+   SCENE 2 REVEAL ANIMATION
+================================================== */
+
+.scene-2.active .episode-mini {
+    animation:
+        revealUp .8s .35s ease forwards;
+}
+
+
+.scene-2.active .heading-decoration {
+    animation:
+        revealUp .8s .5s ease forwards;
+}
+
+
+.scene-2.active .character-text h2 {
+    animation:
+        revealUp .9s .65s ease forwards;
+}
+
+
+.scene-2.active .script-text {
+    animation:
+        revealUp .8s .9s ease forwards;
+}
+
+
+.scene-2.active .tiny-line {
+    animation:
+        revealLine .8s 1.1s ease forwards;
+}
+
+
+.scene-2.active .bottom-note {
+    animation:
+        revealUp .8s 1.2s ease forwards;
+}
+
+
+.scene-2.active .little-note {
+    animation:
+        revealUp .8s 1.35s ease forwards;
+}
+
+
+.scene-2.active .next-btn {
+    animation:
+        revealUp .8s 1.5s ease forwards;
+}
+
+
+/* Photo animation */
+
+.scene-2.active .photo-area {
+    animation:
+        photoReveal 1.2s .2s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+
+@keyframes revealUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes revealLine {
+
+    from {
+        opacity: 0;
+
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+
+@keyframes photoReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-45px)
+            rotate(-8deg);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            rotate(-3deg);
+    }
+}
+
+
+@keyframes openingText {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes gentleFloat {
+
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -7px;
+    }
+}
+
+
+@keyframes tinyFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(12deg);
+    }
+}
+
+/* ==================================================
+   SCENE 3 — FAVOURITE THINGS
+================================================== */
+
+.scene-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fff8f5, #f9edf1 48%, #f8f2f7);
+    color: #4b3040;
+}
+
+.scene3-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(247,170,194,.22), transparent 28%),
+        radial-gradient(circle at 90% 80%, rgba(195,170,220,.18), transparent 30%);
+}
+
+.favourites-content {
+    position: relative;
+    z-index: 3;
+    width: min(1100px, 90%);
+    text-align: center;
+}
+
+.favourites-heading { margin-bottom: 30px; }
+.favourites-heading .episode-mini,
+.favourites-heading .heading-decoration { opacity: 1; transform: none; }
+.favourites-heading .episode-mini { margin-bottom: 12px; }
+.favourites-heading .heading-decoration { margin: 0 auto 16px; }
+
+.favourites-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(38px, 4.5vw, 58px);
+    font-weight: 500;
+    line-height: 1;
+    color: #4d3040;
+}
+
+.favourites-heading h2 em { color: #b45f7b; font-style: italic; }
+
+.favourites-intro {
+    max-width: 500px;
+    margin: 15px auto 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    line-height: 1.4;
+    color: #80606d;
+}
+
+.favourite-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.favourite-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(177,118,139,.13);
+    box-shadow: 0 18px 50px rgba(86,48,67,.09);
+    cursor: pointer;
+    text-align: left;
+    transition: transform .5s cubic-bezier(.22,.61,.36,1), box-shadow .5s ease, border-color .35s ease;
+    opacity: 0;
+    transform: translateY(35px);
+}
+
+.scene-3.active .favourite-card { animation: cardReveal .8s ease forwards; }
+.scene-3.active .favourite-card:nth-child(1) { animation-delay: .35s; }
+.scene-3.active .favourite-card:nth-child(2) { animation-delay: .5s; }
+.scene-3.active .favourite-card:nth-child(3) { animation-delay: .65s; }
+
+.favourite-card:hover,
+.favourite-card.selected {
+    transform: translateY(-10px);
+    box-shadow: 0 28px 65px rgba(86,48,67,.15);
+}
+
+.favourite-card.selected { border-color: rgba(177,95,123,.28); }
+
+.card-image {
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+    background: #f8edf0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform .8s ease, filter .8s ease;
+}
+
+.card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(45,25,40,.18), transparent 60%);
+    pointer-events: none;
+}
+
+.favourite-card:hover .card-image img { transform: scale(1.04); }
+
+.card-icon {
+    position: absolute;
+    top: 15px;
+    right: 17px;
+    z-index: 2;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(8px);
+    color: #b45f7b;
+    font-size: 18px;
+}
+
+.card-content { position: relative; padding: 20px 22px 23px; }
+
+.card-number {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #bc8b9c;
+}
+
+.card-content h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #513443;
+    margin-bottom: 7px;
+}
+
+.card-content p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #80606d;
+    min-height: 43px;
+}
+
+.card-action {
+    display: inline-block;
+    margin-top: 13px;
+    font-family: "Great Vibes", cursive;
+    font-size: 20px;
+    color: #b15f7a;
+    transition: transform .3s ease;
+}
+
+.favourite-card:hover .card-action { transform: translateX(5px); }
+
+.favourite-message {
+    min-height: 30px;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    opacity: .75;
+}
+
+.message-flower { color: #d77891; }
+
+.favourite-message p {
+    font-family: "Great Vibes", cursive;
+    font-size: 22px;
+    color: #9c5c73;
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.scene3-next { opacity: 1; transform: none; margin-top: 4px; }
+
+.scene3-petal {
+    position: absolute;
+    width: 12px;
+    height: 7px;
+    border-radius: 100% 0 100% 0;
+    background: #efa2b7;
+    opacity: .35;
+}
+
+.petal-1 { left: 8%; top: 22%; transform: rotate(30deg); }
+.petal-2 { right: 12%; top: 18%; transform: rotate(-20deg); }
+.petal-3 { right: 20%; bottom: 18%; transform: rotate(45deg); }
+
+/* ==================================================
+   SCENE 4 — THE SEOUL DREAM
+================================================== */
+
+.scene-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #17121d;
+    color: #fff;
+}
+
+.scene4-background {
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/korea.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.04);
+    filter: saturate(.85) contrast(.92);
+}
+
+.scene4-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(18,10,24,.86) 0%, rgba(18,10,24,.56) 42%, rgba(18,10,24,.24) 100%),
+        linear-gradient(0deg, rgba(12,7,17,.68), transparent 55%);
+}
+
+.scene4-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: #f2a8c0;
+    filter: blur(110px);
+    opacity: .18;
+    left: 18%;
+    top: 25%;
+}
+
+.scene4-content {
+    position: relative;
+    z-index: 3;
+    width: min(1120px, 90%);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 70px;
+    align-items: center;
+}
+
+.scene4-copy { max-width: 650px; }
+
+.scene4-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #f3c7d5;
+    margin-bottom: 22px;
+}
+
+.scene4-copy h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 6.5vw, 82px);
+    line-height: .92;
+    font-weight: 500;
+    text-shadow: 0 8px 35px rgba(0,0,0,.28);
+}
+
+.scene4-copy h2 em { color: #ffd6e2; font-style: italic; }
+
+.scene4-script {
+    margin-top: 27px;
+    font-family: "Great Vibes", cursive;
+    font-size: 34px;
+    color: #f7dbe5;
+}
+
+.scene4-line {
+    width: 75px;
+    height: 1px;
+    margin: 26px 0;
+    background: rgba(255,220,232,.6);
+}
+
+.scene4-copy .scene4-description {
+    max-width: 480px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    line-height: 1.45;
+    color: rgba(255,240,245,.78);
+}
+
+.scene4-place {
+    margin-top: 18px;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,.6);
+}
+
+.scene4-memory {
+    position: relative;
+    justify-self: end;
+    width: 300px;
+    padding: 10px 10px 38px;
+    background: #fffaf8;
+    box-shadow: 0 30px 75px rgba(0,0,0,.35);
+    transform: rotate(4deg);
+    transition: transform .5s ease;
+}
+
+.scene4-memory:hover { transform: rotate(0deg) translateY(-8px); }
+
+.scene4-memory img {
+    display: block;
+    width: 100%;
+    height: 365px;
+    object-fit: cover;
+}
+
+.scene4-memory::before {
+    content: "";
+    position: absolute;
+    width: 85px;
+    height: 25px;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    background: rgba(232,190,199,.78);
+}
+
+.scene4-memory-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 9px;
+    text-align: center;
+    font-family: "Great Vibes", cursive;
+    font-size: 20px;
+    color: #9c6177;
+}
+
+.scene4-next {
+    position: relative;
+    z-index: 20;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    margin-top: 25px;
+
+    color: rgba(255,240,245,.9);
+
+    opacity: 1;
+    visibility: visible;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+}
+
+.scene4-next span {
+    color: inherit;
+}
+
+.scene4-next strong {
+    color: inherit;
+    transition: transform .3s ease;
+}
+
+.scene4-next:hover {
+    color: #ffd1df;
+}
+
+.scene4-next:hover strong {
+    transform: translateX(6px);
+}
+
+/* ==================================================
+   CARD / SCENE ANIMATIONS
+================================================== */
+
+@keyframes cardReveal {
+    from { opacity: 0; transform: translateY(35px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scene-4.active .scene4-copy {
+    animation: revealUp .9s .25s ease both;
+}
+
+.scene-4.active .scene4-memory {
+    animation: photoReveal 1.1s .35s cubic-bezier(.22,.61,.36,1) both;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 800px) {
+    html, body { overflow: hidden; }
+
+    .opening-content { width: 90%; }
+    .opening-content h1 { font-size: 43px; line-height: 1.03; }
+    .episode-label { letter-spacing: 4px; }
+    .opening-subtitle { font-size: 28px; }
+    .opening-footer { left: 20px; right: 20px; }
+
+    .scene2-content {
+        width: 88%;
+        gap: 30px;
+        flex-direction: column;
+        overflow-y: auto;
+        max-height: 100vh;
+        padding: 70px 0 80px;
+    }
+
+    .photo-area { width: 280px; min-width: 280px; height: 390px; }
+    .paper-layer { width: 265px; height: 350px; }
+    .photo-wrapper { width: 265px; padding: 10px 10px 38px; }
+    .main-photo { height: 335px; }
+    .photo-caption { font-size: 17px; bottom: 8px; }
+    .tape { width: 80px; height: 24px; top: -13px; }
+    .flower { width: 43px; height: 43px; }
+    .flower-top { right: -15px; }
+    .flower-bottom { left: -18px; bottom: 40px; }
+
+    .character-text {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+
+    .episode-mini { font-size: 8px; letter-spacing: 3px; }
+    .heading-decoration { margin-left: auto; margin-right: auto; }
+    .character-text h2 { font-size: 42px; line-height: 1; }
+    .script-text { font-size: 31px; }
+    .tiny-line { margin: 25px auto; }
+    .bottom-note { font-size: 17px; }
+    .next-btn { justify-content: center; }
+    .scene-number { right: 18px; bottom: 17px; }
+
+    .scene-3 { overflow-y: auto; align-items: flex-start; }
+    .favourites-content { width: 88%; padding: 55px 0 70px; }
+    .favourites-heading { margin-bottom: 25px; }
+    .favourites-heading h2 { font-size: 40px; }
+    .favourites-intro { font-size: 16px; }
+    .favourite-cards { grid-template-columns: 1fr; gap: 17px; }
+    .favourite-card { display: grid; grid-template-columns: 42% 58%; }
+    .card-image { height: 145px; }
+    .card-content { padding: 15px 17px; }
+    .card-content h3 { font-size: 27px; }
+    .card-content p { font-size: 15px; min-height: auto; }
+    .card-action { margin-top: 6px; font-size: 18px; }
+    .favourite-message { margin-top: 15px; }
+
+    .scene-4 { overflow-y: auto; align-items: flex-start; }
+    .scene4-content {
+        width: 88%;
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding: 75px 0 75px;
+    }
+
+    .scene4-copy { text-align: center; }
+    .scene4-label { letter-spacing: 4px; }
+    .scene4-copy h2 { font-size: 50px; }
+    .scene4-script { font-size: 30px; }
+    .scene4-line { margin: 22px auto; }
+    .scene4-copy .scene4-description { font-size: 17px; }
+    .scene4-place { margin-top: 14px; }
+    .scene4-memory { justify-self: center; width: min(280px, 80vw); }
+    .scene4-memory img { height: 340px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}

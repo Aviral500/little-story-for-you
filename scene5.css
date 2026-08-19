@@ -1,0 +1,871 @@
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    min-height: 100%;
+
+}
+
+
+body {
+
+    font-family: "DM Sans", sans-serif;
+
+    background: #dfeaf5;
+
+    color: #34445b;
+
+    overflow-x: hidden;
+
+}
+
+
+/* ==================================================
+   BACKGROUND
+================================================== */
+
+.scene5-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #eaf3fa 0%,
+            #dce9f5 45%,
+            #eee8f5 100%
+        );
+
+}
+
+
+/* Soft blue lights */
+
+.blue-glow {
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: .28;
+
+}
+
+
+.glow-left {
+
+    left: -180px;
+
+    top: 5%;
+
+    background: #9fc9e8;
+
+}
+
+
+.glow-right {
+
+    right: -180px;
+
+    bottom: 0;
+
+    background: #c6aedb;
+
+}
+
+
+/* Moon-like glow */
+
+.moon-glow {
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    right: 10%;
+
+    top: 8%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8),
+            rgba(255,255,255,0)
+        );
+
+    filter: blur(12px);
+
+    opacity: .45;
+
+}
+
+
+/* ==================================================
+   MAIN CONTAINER
+================================================== */
+
+.scene5-container {
+
+    width: min(1150px, 90%);
+
+    margin: 0 auto;
+
+    min-height: 100vh;
+
+    padding:
+
+        55px 0
+        60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+/* ==================================================
+   HEADING
+================================================== */
+
+.scene5-heading {
+
+    text-align: center;
+
+    max-width: 650px;
+
+}
+
+
+.episode-label {
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #728aa4;
+
+    margin-bottom: 15px;
+
+}
+
+
+.heading-line {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 150px;
+
+    margin: 0 auto 18px;
+
+}
+
+
+.heading-line span {
+
+    height: 1px;
+
+    flex: 1;
+
+    background: #aebfd1;
+
+}
+
+
+.heading-line i {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-style: normal;
+
+    font-size: 17px;
+
+    color: #8d7aa8;
+
+}
+
+
+.scene5-heading h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(44px, 5vw, 66px);
+
+    font-weight: 500;
+
+    line-height: .98;
+
+    letter-spacing: -.8px;
+
+    color: #35455c;
+
+}
+
+
+.scene5-heading h1 em {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 1.05em;
+
+    font-weight: 400;
+
+    color: #7e739f;
+
+}
+
+
+.intro-text {
+
+    max-width: 470px;
+
+    margin: 18px auto 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.4;
+
+    color: #718096;
+
+}
+
+
+.intro-text span {
+
+    color: #8c739f;
+
+    font-style: italic;
+
+}
+
+
+/* ==================================================
+   MEMORY COLLAGE
+================================================== */
+
+.memory-collage {
+
+    width: 100%;
+
+    margin-top: 42px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 28px;
+
+}
+
+
+/* ==================================================
+   MEMORY CARD
+================================================== */
+
+.memory-card {
+
+    position: relative;
+
+    width: 30%;
+
+    max-width: 315px;
+
+    padding: 10px 10px 35px;
+
+    background: #fbfdff;
+
+    box-shadow:
+
+        0 20px 55px
+        rgba(60,78,100,.15);
+
+    cursor: pointer;
+
+    transition:
+
+        transform .5s
+        cubic-bezier(.22,.61,.36,1),
+
+        box-shadow .5s ease;
+
+    opacity: 0;
+
+    animation:
+        cardAppear .9s ease forwards;
+
+}
+
+
+.card-one {
+
+    transform: rotate(-4deg);
+
+    animation-delay: .2s;
+
+}
+
+
+.card-two {
+
+    transform: rotate(2deg);
+
+    animation-delay: .4s;
+
+}
+
+
+.card-three {
+
+    transform: rotate(4deg);
+
+    animation-delay: .6s;
+
+}
+
+
+.memory-card:hover {
+
+    transform:
+        translateY(-12px)
+        rotate(0deg)
+        scale(1.025);
+
+    box-shadow:
+
+        0 30px 70px
+        rgba(60,78,100,.2);
+
+}
+
+
+/* ==================================================
+   PHOTO
+================================================== */
+
+.photo-frame {
+
+    width: 100%;
+
+    height: 330px;
+
+    overflow: hidden;
+
+    background: #e9eff5;
+
+}
+
+
+.photo-frame img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .8s ease;
+
+}
+
+
+.memory-card:hover
+.photo-frame img {
+
+    transform: scale(1.045);
+
+}
+
+
+/* ==================================================
+   PHOTO CAPTION
+================================================== */
+
+.memory-caption {
+
+    position: absolute;
+
+    left: 15px;
+
+    right: 15px;
+
+    bottom: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.memory-caption span {
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #9aabbc;
+
+}
+
+
+.memory-caption p {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 21px;
+
+    color: #6f7592;
+
+}
+
+
+/* ==================================================
+   MEMORY MESSAGE
+================================================== */
+
+.memory-message {
+
+    min-height: 38px;
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    text-align: center;
+
+}
+
+
+.memory-message span {
+
+    color: #9d7fa8;
+
+    font-size: 16px;
+
+}
+
+
+.memory-message p {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 24px;
+
+    color: #6d6685;
+
+    transition:
+
+        opacity .3s ease,
+
+        transform .3s ease;
+
+}
+
+
+/* ==================================================
+   FINAL NOTE
+================================================== */
+
+.final-note {
+
+    text-align: center;
+
+    margin-top: 12px;
+
+}
+
+
+.final-note p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 17px;
+
+    color: #66758b;
+
+}
+
+
+.final-note span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 22px;
+
+    color: #83749c;
+
+}
+
+
+/* ==================================================
+   NEXT BUTTON
+================================================== */
+
+.next-btn {
+
+    margin-top: 25px;
+
+    border: none;
+
+    background: transparent;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: #65778d;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    padding: 8px 0;
+
+    transition: .35s ease;
+
+}
+
+
+.next-btn strong {
+
+    font-size: 21px;
+
+    font-weight: 300;
+
+    transition: .35s ease;
+
+}
+
+
+.next-btn:hover {
+
+    color: #75668f;
+
+}
+
+
+.next-btn:hover strong {
+
+    transform:
+        translateX(7px);
+
+}
+
+
+/* ==================================================
+   FALLING PETALS
+================================================== */
+
+#petals-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    overflow: hidden;
+
+}
+
+
+.petal {
+
+    position: absolute;
+
+    top: -20px;
+
+    width: 9px;
+
+    height: 6px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        #b7cce0;
+
+    opacity: .5;
+
+    animation:
+        fall linear forwards;
+
+}
+
+
+@keyframes fall {
+
+    0% {
+
+        transform:
+            translateY(-30px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+
+    10% {
+
+        opacity: .55;
+
+    }
+
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            translateX(90px)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ==================================================
+   CARD ANIMATION
+================================================== */
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            rotate(0deg);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* ==================================================
+   SCENE NUMBER
+================================================== */
+
+.scene-number {
+
+    position: fixed;
+
+    right: 32px;
+
+    bottom: 25px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: rgba(70,88,108,.55);
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 800px) {
+
+
+    .scene5-container {
+
+        width: 88%;
+
+        padding:
+            45px 0
+            65px;
+
+    }
+
+
+    .scene5-heading h1 {
+
+        font-size: 43px;
+
+    }
+
+
+    .intro-text {
+
+        font-size: 16px;
+
+    }
+
+
+    .memory-collage {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 28px;
+
+        margin-top: 35px;
+
+    }
+
+
+    .memory-card {
+
+        width: 82%;
+
+        max-width: 300px;
+
+    }
+
+
+    .photo-frame {
+
+        height: 330px;
+
+    }
+
+
+    .card-one {
+
+        transform: rotate(-3deg);
+
+    }
+
+
+    .card-two {
+
+        transform: rotate(2deg);
+
+    }
+
+
+    .card-three {
+
+        transform: rotate(-2deg);
+
+    }
+
+
+    .memory-message {
+
+        margin-top: 25px;
+
+    }
+
+
+    .memory-message p {
+
+        font-size: 21px;
+
+    }
+
+
+    .final-note p {
+
+        font-size: 16px;
+
+    }
+
+
+    .scene-number {
+
+        right: 18px;
+
+        bottom: 17px;
+
+    }
+
+}
