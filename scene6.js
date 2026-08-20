@@ -51,6 +51,18 @@ scene7Next.addEventListener("click", () => {
 
         scene8.classList.add("active");
 
+        birthdayMusic.volume = 0.35;
+        birthdayMusic.currentTime = 0;
+
+        birthdayMusic.play().catch((error) => {
+
+            console.log(
+                "Music could not start:",
+                error
+            );
+
+        });
+
     }, 400);
 
 });
@@ -61,6 +73,10 @@ scene7Next.addEventListener("click", () => {
 ================================================== */
 
 replayBtn.addEventListener("click", () => {
+
+    birthdayMusic.pause();
+
+    birthdayMusic.currentTime = 0;
 
     window.location.href =
         "index.html";
